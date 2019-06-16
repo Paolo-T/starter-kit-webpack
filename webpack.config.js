@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/js/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: './main.js'
     },
     devServer: {
         contentBase: './dist'
@@ -20,6 +20,13 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.js$/,
+                exclude: "/node_modules",
+                use: {
+                    loader: "babel-loader"
+                }
+            },
+            {
                 test: /\.html$/,
                 use: [
                     {
@@ -28,7 +35,17 @@ module.exports = {
                     }
                 ]
             },
-
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'images',
+                        },
+                    },
+                ]
+            }
         ]
     },
     plugins: [
