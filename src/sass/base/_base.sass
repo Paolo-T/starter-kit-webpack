@@ -1,0 +1,43 @@
+// Basic Styles
+
+body
+    background: $bg-color
+    font-size: 62.5%
+    line-height: 1.5rem
+    color: $text-color
+    min-height: 100vh
+    -webkit-font-smoothing: antialiased
+    -webkit-text-size-adjust: 100%
+    -webkit-tap-highlight-color: $selection-color
+
+#main
+    width: 95vw
+    max-width: 1800px
+    margin: 3.8rem auto 0 auto
+    box-sizing: border-box
+    overflow: hidden
+
+@media screen and (max-width: 850px)
+    #main
+        margin: 80px auto 0 auto
+
+
+a:hover, a:focus
+    color: $accent-color
+    text-decoration: line-through
+    cursor: pointer
+
+
+
+// Selection colors
+::selection
+    background: $selection-color
+
+::-moz-selection
+    background: $selection-color
+
+img::selection
+    background: transparent
+
+img::-moz-selection
+    background: transparent
